@@ -15,31 +15,27 @@ namespace Infrastructure.UnitOfWork
         private ICliente _clientes;
         private IColor _colores;
         private IDepartamento _departamentos;
-        private IDetalleOrden _detallesordenes;
-        private IDetalleVenta _detallesventas;
+        private IDetalleOrden _detalleordenes;
+        private IDetalleVenta _detalleventas;
         private IEmpleado _empleados;
         private IEmpresa _empresas;
         private IEstado _estados;
-        private IFormaPago _formaspagos;
+        private IFormaPago _formapagos;
         private IGenero _generos;
         private IInsumo _insumos;
-
-        private IInsumoPrenda _insumoprendas;
-        private IInsumoProveedor _insumoproveedores;
         private IInventario _inventarios;
-        private IInventarioTalla _inventariotallas;
         private IMunicipio _municipios;
         private IOrden _ordenes;
         private IPais _paises;
         private IPrenda _prendas;
         private IProveedor _proveedores;
         private ITalla _tallas;
-        private ITipoEstado _tiposestados;
-        private ITipoPersona _tipospersonas;
-        private ITipoProteccion _tiposprotecciones;
+        private ITipoEstado _tipoestados;
+        private ITipoPersona _tipopersonas;
+        private ITipoProteccion _tipoprotecciones;
         private IVenta _ventas;
 
-        public UnitOfWork(RopaContext context)
+        public UnitOfWork(FiltroClothingContext context)
         {
             _context = context;
         }
@@ -75,20 +71,20 @@ namespace Infrastructure.UnitOfWork
                 return _departamentos;
             }
         }
-        public IDetalleOrden DetallesOrdenes{
+        public IDetalleOrden DetalleOrdenes{
             get{
-                if(_detallesordenes == null){
-                    _detallesordenes = new DetalleOrdenRepository(_context);
+                if(_detalleordenes == null){
+                    _detalleordenes = new DetalleOrdenRepository(_context);
                 }
-                return _detallesordenes;
+                return _detalleordenes;
             }
         }
-        public IDetalleVenta DetallesVentas{
+        public IDetalleVenta DetalleVentas{
             get{
-                if(_detallesventas == null){
-                    _detallesventas = new DetalleVentaRepository(_context);
+                if(_detalleventas == null){
+                    _detalleventas = new DetalleVentaRepository(_context);
                 }
-                return _detallesventas;
+                return _detalleventas;
             }
         }
         public IEmpleado Empleados{
@@ -117,10 +113,10 @@ namespace Infrastructure.UnitOfWork
         }
         public IFormaPago FormasPagos{
             get{
-                if(_formaspagos == null){
-                    _formaspagos = new FormaPagoRepository(_context);
+                if(_formapagos == null){
+                    _formapagos = new FormaPagoRepository(_context);
                 }
-                return _formaspagos;
+                return _formapagos;
             }
         }
         public IGenero Generos{
@@ -139,36 +135,13 @@ namespace Infrastructure.UnitOfWork
                 return _insumos;
             }
         }
-        public IInsumoProveedor InsumoProveedores{
-            get{
-                if(_insumoproveedores == null){
-                    _insumoproveedores = new InsumoProveedorRepository(_context);
-                }
-                return _insumoproveedores;
-            }
-        }
-        public IInsumoPrenda InsumoPrendas{
-            get{
-                if(_insumoprendas == null){
-                    _insumoprendas = new InsumoPrendasRepository(_context);
-                }
-                return _insumoprendas;
-            }
-        }
+
         public IInventario Inventarios{
             get{
                 if(_inventarios == null){
                     _inventarios = new InventarioRepository(_context);
                 }
                 return _inventarios;
-            }
-        }
-        public IInventarioTalla InventarioTallas{
-            get{
-                if(_inventariotallas == null){
-                    _inventariotallas = new InventarioTallaRepository(_context);
-                }
-                return _inventariotallas;
             }
         }
         
@@ -220,28 +193,28 @@ namespace Infrastructure.UnitOfWork
                 return _tallas;
             }
         }
-        public ITipoEstado TiposEstados{
+        public ITipoEstado TipoEstados{
             get{
-                if(_tiposestados == null){
-                    _tiposestados = new TipoEstadoRepository(_context);
+                if(_tipoestados == null){
+                    _tipoestados = new TipoEstadoRepository(_context);
                 }
-                return _tiposestados;
+                return _tipoestados;
             }
         }
-        public ITipoPersona TiposPersonas{
+        public ITipoPersona TipoPersonas{
             get{
-                if(_tipospersonas == null){
-                    _tipospersonas = new TipoPersonaRepository(_context);
+                if(_tipopersonas == null){
+                    _tipopersonas = new TipoPersonaRepository(_context);
                 }
-                return _tipospersonas;
+                return _tipopersonas;
             }
         }
-        public ITipoProteccion TiposProtecciones{
+        public ITipoProteccion TipoProtecciones{
             get{
-                if(_tiposprotecciones == null){
-                    _tiposprotecciones = new TipoProteccionRepository(_context);
+                if(_tipoprotecciones == null){
+                    _tipoprotecciones = new TipoProteccionRepository(_context);
                 }
-                return _tiposprotecciones;
+                return _tipoprotecciones;
             }
         }
         public IVenta Ventas{
@@ -252,6 +225,13 @@ namespace Infrastructure.UnitOfWork
                 return _ventas;
             }
         }
+
+
+        public Task CompleteAsync()
+        {
+            throw new NotImplementedException();
+        }
+
         public void Dispose()
         {
             _context.Dispose();
