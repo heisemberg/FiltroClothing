@@ -31,6 +31,6 @@ namespace Core.Interfaces
         ITipoProteccion TipoProtecciones { get; }
 
         IVenta Ventas { get; }
-        Task SaveAsync();
+        Task<int> SaveAsync();
     }
 }
