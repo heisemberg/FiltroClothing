@@ -93,3 +93,78 @@ RESPUESTA 400
   "additionalProp2": "string",
   "additionalProp3": "string"
 }
+
+EJEMPLO PUT
+
+http://localhost:5150/Cargo
+
+EJEMPLO PETICION VALUE
+
+{
+  "id": 0,
+  "idCliente": 0,
+  "nombreCliente": "string",
+  "fechaRegistro": "2023-10-25T19:06:10.544Z",
+  "idTipoPersona": 0,
+  "idMunicipio": 0
+}
+
+RESPUESTA
+200
+{
+  "id": 0,
+  "idCliente": 0,
+  "nombreCliente": "string",
+  "fechaRegistro": "2023-10-25T19:06:10.544Z",
+  "idTipoPersona": 0,
+  "idMunicipio": 0
+}
+
+400
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+
+404
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
+
+
+EJEMPLO DELETE
+
+http://localhost:5150/Cargo
+
+ENVIAR ID EN PETICION PARA BORRAR
+
+RESPUESTA
+
+200 	
+Success
+
+404
+
+{
+  "type": "string",
+  "title": "string",
+  "status": 0,
+  "detail": "string",
+  "instance": "string",
+  "additionalProp1": "string",
+  "additionalProp2": "string",
+  "additionalProp3": "string"
+}
