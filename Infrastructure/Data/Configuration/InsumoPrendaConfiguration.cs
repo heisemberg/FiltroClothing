@@ -12,6 +12,8 @@ namespace Infrastructure.Data.Configuracion
              // utilizando el objeto builder
              builder.ToTable("InsumoPrenda");
 
+            builder.HasKey(t => new { t.IdPrenda, t.IdInsumo});
+
              builder.HasOne(p => p.Insumos)
              .WithMany(p => p.InsumoPrendas)
              .HasForeignKey(p => p.IdInsumo);
@@ -20,7 +22,10 @@ namespace Infrastructure.Data.Configuracion
                  .WithMany(p => p.InsumoPrendas)
                  .HasForeignKey(p => p.IdPrenda);
 
-              
+             builder.Property(e => e.Cantidad)
+                 .IsRequired()
+                 .HasColumnType("int");
+
              }
          }
      }

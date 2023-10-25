@@ -9,6 +9,6 @@ namespace Core.Entities
     {
         public string Descripcion { get; set; }
         public ICollection<InventarioTalla> InventarioTallas { get; set; }
-        public ICollection<DetalleVenta> DetalleVenta { get; set; }
+        public ICollection<DetalleVenta> DetalleVentas { get; set; }
     }
 }

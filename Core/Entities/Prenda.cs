@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -7,9 +8,13 @@ namespace Core.Entities
 {
     public class Prenda : BaseEntity
     {
+        [Required]
         public int IdPrenda { get; set; }
+        [Required]
         public string NombrePrenda { get; set; }
+        [Required]
         public string ValorUnitCop { get; set; }
+        [Required]
         public string ValorUnitUsd { get; set; }
         public int IdEstado { get; set; }
         public Estado Estados { get; set; }

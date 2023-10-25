@@ -1,21 +1,36 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Core.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Infrastructure.Data.Configuracion
+namespace Infrastructure.Data.Configuration
 {
-     public class OrdenConfiguration : IEntityTypeConfiguration<Orden>
-     {
-         public void Configure(EntityTypeBuilder<Orden> builder)
-         {
-             // Aquí puedes configurar las propiedades de la entidad
-             // utilizando el objeto builder
-             builder.ToTable("Orden");
+    public class OrdenConfiguration : IEntityTypeConfiguration<Orden>
+    {
+        public void Configure(EntityTypeBuilder<Orden> builder)
+        {
+            builder.Property(p => p.IdOrden)
+                   .HasAnnotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn)
+                   .HasMaxLength(3);
 
-             builder.Property(p => p.IdOrden).HasAnnotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn).HasMaxLength(3);    
+            builder.Property(e => e.FechaOrden)
+            .HasColumnType("datetime");
 
-            
-             }
-         }
-     }
+            builder.HasOne(p => p.Empleados)
+            .WithMany(p => p.Ordenes)
+            .HasForeignKey(p => p.IdEmpleado);
+
+            builder.HasOne(p => p.Clientes)
+            .WithMany(p => p.Ordenes)
+            .HasForeignKey(p => p.IdCliente);
+
+            builder.HasOne(p => p.Estados)
+            .WithMany(p => p.Ordenes)
+            .HasForeignKey(p => p.IdEstado);
+        }
+    }
+}

@@ -26,7 +26,13 @@ namespace Infrastructure.Data.Configuracion
                  .WithMany(p => p.Empleados)
                  .HasForeignKey(p => p.IdCargo);
 
-             
+             builder.Property(e => e.FechaIngreso)
+                     .IsRequired()
+                     .HasColumnType("date");
+
+             builder.HasOne(p => p.Municipios)
+                 .WithMany(p => p.Empleados)
+                 .HasForeignKey(p => p.MunicipioId);
              }
          }
      }
