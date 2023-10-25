@@ -2,11 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ApiRopa.Dtos;
+using API.Dtos;
 using AutoMapper;
 using Core.Entities;
 
-namespace ApiRopa.Profiles
+namespace API.Profiles
 {
     public class MappingProfiles : Profile
     {
