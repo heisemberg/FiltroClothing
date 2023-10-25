@@ -13,9 +13,8 @@ namespace Infrastructure.Data.Configuration
     {
         public void Configure(EntityTypeBuilder<Orden> builder)
         {
-            builder.Property(p => p.IdOrden)
-                   .HasAnnotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn)
-                   .HasMaxLength(3);
+            builder.HasKey(e => e.Id);
+            builder.Property(e => e.Id);
 
             builder.Property(e => e.FechaOrden)
             .HasColumnType("datetime");

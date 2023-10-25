@@ -13,9 +13,9 @@ namespace Core.Entities
         [Required]
         public string NombrePrenda { get; set; }
         [Required]
-        public string ValorUnitCop { get; set; }
+        public double ValorUnitCop { get; set; }
         [Required]
-        public string ValorUnitUsd { get; set; }
+        public double ValorUnitUsd { get; set; }
         public int IdEstado { get; set; }
         public Estado Estados { get; set; }
         public int IdTipoProteccion { get; set; }

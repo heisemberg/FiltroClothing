@@ -1,18 +1,14 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Core.Entities
+namespace API.Dtos
 {
-    public class Cargo : BaseEntity
+    public class CargoDto
     {
-        [Required]
+        public int Id { get; set; }
         public string Descripcion { get; set; }
-        [Required]
         public double SueldoBase { get; set; }
-
-        public ICollection<Empleado> Empleados { get; set; }
     }
 }
