@@ -7,9 +7,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Data
 {
-    public class FiltroClothing : DbContext
+    public class FiltroClothingContext : DbContext
     {
-        public FiltroClothing(DbContextOptions options) : base(options)
+        public FiltroClothingContext(DbContextOptions options) : base(options)
         {
             
         }
